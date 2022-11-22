@@ -15,6 +15,7 @@ Ce projet à pour but de m'initier et de commencer la programmation assembleur d
 - https://interrupt.memfault.com/blog/how-to-write-a-bootloader-from-scratch
 - https://softwareengineering.stackexchange.com/questions/165025/what-is-the-difference-between-times-and-dup-in-assembly-language
 - https://ceionius.com/vga
+- https://wiki.osdev.org/Bootable_CD
 
 # Etat des choses
 

@@ -1,4 +1,4 @@
-ORG 0x7c00                           ; addresse de départ du pour boot, on se déplace à cette addresse (instruction NASM)
+ORG 0x7c00                           ; addresse de départ pour boot, on se déplace à cette addresse (instruction NASM)
 BITS 16                              ; asssemblage en 16 bit uniquement (instruction NASM)
 
 
@@ -15,13 +15,13 @@ start:
 
     jmp         $                    ; boucle infinie pour afficher le texte
 
-times 510-($ - $$) db 0              ; times = pseudo-instruction de l'assembleur NASM qui répète une instruction un nombre de fois définis
+times 0x167ffe-($ - $$) db 0         ; times = pseudo-instruction de l'assembleur NASM qui répète une instruction un nombre de fois définis
                                      ; $$ = l'adresse du début de la section actuelle
                                      ; $ = l'adresse actuelle de l'état
-                                     ; 510 - ($ - $$) = soustraction de 510 - la taille des instructions car la taille doit être à 512 bytes
+                                     ; 0x167ffe - ($ - $$) = soustraction de 1.44MB - la taille des instructions car la taille doit être à 1.44MB bytes dans un ISO
                                      ; db = data byte, insère des données en bytes
-                                     ; en résumé, la ligne demande à remplir les bytes restant à 0, pour obtenir 512 bytes d'espace total
+                                     ; en résumé, la ligne demande à remplir les bytes restant à 0, pour obtenir 1.44MB bytes d'espace total
 
 
 dw 0xAA55                            ; signature de boot, ordre inversé
-                                     ; l'instruction dw est de 2 bytes donc le seuil de 512 bytes est atteint et le programme peut démarrer
+                                     ; l'instruction dw est de 2 bytes donc le seuil de 1.44MB bytes est atteint et le programme peut démarrer
