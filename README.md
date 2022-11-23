@@ -16,18 +16,22 @@ Ce projet à pour but de m'initier et de commencer la programmation assembleur d
 - https://softwareengineering.stackexchange.com/questions/165025/what-is-the-difference-between-times-and-dup-in-assembly-language
 - https://ceionius.com/vga
 - https://wiki.osdev.org/Bootable_CD
+- https://www.gladir.com/LEXIQUE/INTR/INT10.HTM
+- https://stackoverflow.com/questions/34121971/using-es-register-gives-errors
+- https://www.ditig.com/256-colors-cheat-sheet
+- https://stackoverflow.com/questions/12556973/how-does-int-10-13h-work-with-attributes
 
 # Etat des choses
 
-Pour le moment, ce programme est à peine capable d'afficher la lettre 'H' à l'écran.
+Pour le moment, ce programme est capable d'afficher une phrase à l'écran
 
 ![demo](./demo/demo.png)
 
 # Défis à venir
 
-- Mon défis suivant, serait d'afficher une chaine de caractère et donc une phrase.
+- [x] Mon défis suivant, serait d'afficher une chaine de caractère et donc une phrase.
 
-- Un autre serait de charger mon programme [nad_on_boot](https://github.com/nadnone/nad_on_boot) écrit en Rust à l'aide de ce bootloader
+- [ ] Un autre serait de charger mon programme [nad_on_boot](https://github.com/nadnone/nad_on_boot) écrit en Rust à l'aide de ce bootloader
 
-- Je verrais ensuite (peut-être) comment jouer avec les autres composants de l'ordinateur en créant un système d'exploitation primitif
+- [ ] Je verrais ensuite (peut-être) comment jouer avec les autres composants de l'ordinateur en créant un système d'exploitation primitif
 
