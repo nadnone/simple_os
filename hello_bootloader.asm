@@ -15,7 +15,7 @@ printstr:
     mov         bh, 0                ; page 0, on n'utilise pas cette fonctionnalité
     mov         bp, texte            ; on indique l'addresse de départ du string au registre BP
 
-    int         10h                  ; on appel l'interrupt 0x1y0 du BIOS pour afficher le message
+    int         10h                  ; on appel l'interrupt 0x10 du BIOS pour afficher le message
 
     jmp         $                    ; boucle infinie, on bouge plus et on attend
 
