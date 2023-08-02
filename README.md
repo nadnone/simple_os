@@ -35,7 +35,9 @@ Ce projet à pour but de m'initier et de commencer la programmation assembleur d
 
 - /hello_bootloader: Affiche un texte à l'écran
 
-- /nad_boot_kernel: Est sensé charger le program qui lui est accolé. pour le moment, il n'affiche qu'une erreur.
+- /nad_boot_kernel: Est sensé charger le program qui lui est accolé. pour le moment, il n'affiche actuellement rien.
+
+- projet mis sur pause, je vais déjà m'amuser sur un kernel avec un bootloader préfais, puis j'irais ensuite sur ce projet une fois le certains notions mieux maitrisées
 
 ![demo](./demo/demo.png)
 

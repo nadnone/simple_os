@@ -1,64 +1,44 @@
 ORG 0x7c00                                  ; addresse de départ pour boot, on se déplace à cette addresse (instruction NASM)
 BITS 16                                     ; asssemblage en 16 bit uniquement (instruction NASM)
 
-main: 
-    jmp         start                       ; on saute à start 
+main:
+    call        disk_load
+    call        enter_protected_mode
+
+    jmp         $
+
+enter_protected_mode:
+    cli                             ; on désactive tout les interrupts
+    lgdt        [gdt_descriptor]    ; on charge le GDT
+
+    mov     eax, cr0                ; on change le dernier bit de CR0 à 1
+    or      eax, 1b
+    mov     cr0, eax                ; on applique les changements; on passe en 32Bits !
+
+
+[BITS 32]
+goto_kernel:
+
+    mov     dword[0xb8000], 0x07690748
+
+    jmp     $
+
+    jmp     KERNEL_LOCATION
+
+
+%include "disk.asm"
+%include "global_descriptor_table.asm"
 
 
 
-
-start: 
-    mov         ah, 00h                     ; on active le mode graphique https://www.gladir.com/LEXIQUE/INTR/INT10F00.HTM
-    mov         al, 00h                     ; mode 320x200
-    int         10h                         ; on appel l'interrupt BIOS 0x10
-    jmp         drive_load                  ; on saute à printstr pour afficher le message
-
-
-
-drive_load: 
-    mov         ah, 2                       ; lecture du secteur disque https://www.gladir.com/LEXIQUE/INTR/int13f02.htm
-    mov         al, 1                       ; nombre de secteurs à lire
-    mov         ch, 0                       ; cylindre
-    mov         cl, 2                       ; secteur
-    mov         dh, 0                       ; numéero de tête de lecture/écriture
-    mov         dl, 80h                     ; unité du disque 0 (pour un CDROM ou un disque dur)
-    mov         bx, 0x7e00                  ; 0x7c00 + 512 (addresse du kernel)
-
-    int         13h                         ; Drive read interrupt
-
-    jmp         print_string                ; on va imprimer le résultat
-
-
-
-
-print_string:
-    mov         ah, 13h                     ; on utilise la fonction 0x13 de l'interrupt 0x10 du BIOS https://www.gladir.com/LEXIQUE/INTR/int10f13.htm
-    mov         al, 01h                     ; on indique le mode de sortie 01h qui permet l'utilisation du registre BL et actualise le curseur
-    mov         bl, 02h                     ; couleurs
-    mov         cx, 7                       ; caractères à écrire
-    mov         dh, 1                       ; ligne
-    mov         dl, 0                       ; colonne
-    mov         bh, 0                       ; page 0, on n'utilise pas cette fonctionnalité
-
-    cmp         ah, 0                       ; on compare si il y a erreur avec le flag ah de INT_13H section drve_check
-    jne         n_eqal                      ; si pas égal on saute à n_eqal
-
-    mov         bp, text_success            ; sinon on écrit success
-    jmp         print                       
-
-n_eqal:
-    mov         bp, text_error              
-
-; on print à l'écran
-print:
-    int         10h                         ; on appel l'interrupt 0x10 du BIOS pour afficher le message
-    jmp         $                           ; boucle infinie, on bouge plus et on attend
-
+; on passe ne mode protégé pour pouvoir sauter au kernel
+; plus d'info ici => https://youtu.be/Wh5nPn2U_1w?list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
 
 
 ; quelques variables
-text_error db "ERROR  ", 0x0a
-text_success db "SUCCESS", 0x0a
+KERNEL_LOCATION equ 0x7e00 ; l'endroit ou sera chargé le kernel dans la RAM
+
+flag_check db 0
 ; db = data byte => chaque caractère fait 8bit
 ; 0x0a = fin de ligne
 
