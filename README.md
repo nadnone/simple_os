@@ -28,10 +28,14 @@ Ce projet à pour but de m'initier et de commencer la programmation assembleur d
     - https://stackoverflow.com/questions/12556973/how-does-int-10-13h-work-with-attributes
 - Manuel de genisoimage
     - https://manpages.debian.org/bullseye/genisoimage/genisoimage.1.en.html
+- Cette playlist
+    - https://www.youtube.com/watch?v=MwPjvJ9ulSc&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
 
 # Etat des choses
 
-Pour le moment, ce programme est capable d'afficher une phrase à l'écran
+- /hello_bootloader: Affiche un texte à l'écran
+
+- /nad_boot_kernel: Est sensé charger le program qui lui est accolé. pour le moment, il n'affiche qu'une erreur.
 
 ![demo](./demo/demo.png)
 
