@@ -1,10 +1,34 @@
-# Simple bootloader
+# Simple OS
 
 ### Projet de création d'un programme assembleur x86 capable de se lancer au démarrage de l'ordinateur
 
 ---------------
 
-Ce projet à pour but de m'initier et de commencer la programmation assembleur d'abord sur x86, puis, je projette d'étudier ensuite l'assembleur Armv8 pour mon Rasbperry Pi 4
+Ce projet à pour but de m'initier et de commencer la programmation sans système d'exploitation
+
+# Etat des choses
+
+- /hello_bootloader: Affiche un texte à l'écran
+
+- /kernel_C : mon premier kernel en C
+
+![demo](./demo/demo.png)
+
+# Objectifs à venir
+
+- [x] Mon défis suivant, serait d'afficher une chaine de caractère et donc une phrase.
+
+- [ ] ~~Un autre serait de charger mon programme [nad_on_boot](https://github.com/nadnone/nad_on_boot) écrit en Rust à l'aide de ce bootloader~~
+- [ ] ~~Je verrais ensuite (peut-être) comment jouer avec les autres composants de l'ordinateur en créant un ~~système d'exploitation~~ petit jeu simple~~
+
+- [ ] Charger un kernel fait en C
+    - [x] Charger et executer le kernel
+    - [ ] Récupérer les entrées clavier
+    - [ ] transformer le kernel en un truc cool, comme un jeu simple
+
+- [ ] Charger le kernel avec un bootloader (on croise les doigts)
+
+
 
 ## Afin de réussir ce projet, je me suis documenté avec les sources suivantes:
 
@@ -30,22 +54,6 @@ Ce projet à pour but de m'initier et de commencer la programmation assembleur d
     - https://manpages.debian.org/bullseye/genisoimage/genisoimage.1.en.html
 - Cette playlist
     - https://www.youtube.com/watch?v=MwPjvJ9ulSc&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
-
-# Etat des choses
-
-- /hello_bootloader: Affiche un texte à l'écran
-
-- /nad_boot_kernel: Est sensé charger le program qui lui est accolé. pour le moment, il n'affiche actuellement rien.
-
-- projet mis sur pause, je vais déjà m'amuser sur un kernel avec un bootloader préfais, puis j'irais ensuite sur ce projet une fois le certains notions mieux maitrisées
-
-![demo](./demo/demo.png)
-
-# Défis à venir
-
-- [x] Mon défis suivant, serait d'afficher une chaine de caractère et donc une phrase.
-
-- [ ] Un autre serait de charger mon programme [nad_on_boot](https://github.com/nadnone/nad_on_boot) écrit en Rust à l'aide de ce bootloader
-
-- [ ] Je verrais ensuite (peut-être) comment jouer avec les autres composants de l'ordinateur en créant un ~~système d'exploitation~~ petit jeu simple
+- Créer un simple kernel en C et asm
+    - https://github.com/chipsetx/Simple-Kernel-in-C-and-Assembly
 

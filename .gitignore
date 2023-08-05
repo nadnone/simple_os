@@ -1,2 +1,5 @@
 
 hello_bootloader.bin
+*.o
+kernel
+*.img
