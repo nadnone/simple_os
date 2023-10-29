@@ -44,8 +44,9 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - https://interrupt.memfault.com/blog/how-to-write-a-bootloader-from-scratch
 - La commande TIMES en assembleur (NASM) 
     - https://softwareengineering.stackexchange.com/questions/165025/what-is-the-difference-between-times-and-dup-in-assembly-language
-- Liste des fonctions de l'interruption 0x10
+- Liste des fonctions de l'interruptions
     - https://www.gladir.com/LEXIQUE/INTR/INT10.HTM
+    - https://wiki.osdev.org/BIOS
 - Adresse de départ pour le registre es:bl 
     - https://stackoverflow.com/questions/34121971/using-es-register-gives-errors
 - Registre bl interruption 0x10 function 0x13 

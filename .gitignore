@@ -3,3 +3,4 @@ hello_bootloader.bin
 *.o
 kernel
 *.img
+.vscode/settings.json
