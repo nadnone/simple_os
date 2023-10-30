@@ -23,7 +23,8 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
 
 - [ ] Charger un kernel fait en C
     - [x] Charger et executer le kernel
-    - [ ] Récupérer les entrées clavier
+    - [x] Récupérer les entrées clavier
+    - [x] Créer un malloc() et un free() basique
     - [ ] transformer le kernel en un truc cool, comme un jeu simple
 
 - [ ] Charger le kernel avec un bootloader (on croise les doigts)

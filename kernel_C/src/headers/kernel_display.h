@@ -1,5 +1,4 @@
 #pragma once
-#include "constants.h"
 
 unsigned put_pixel(unsigned px, unsigned py)
 {

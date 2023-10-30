@@ -1,6 +1,4 @@
 #pragma once
-#include "constants.h"
-#include "kernel_display.h"
 
 unsigned drawplayer1(unsigned y)
 {

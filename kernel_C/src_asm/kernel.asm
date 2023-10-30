@@ -1,7 +1,7 @@
 bits 32
 
 section .text
-    ; spécifications multiboot de GRUB
+
     align 4
     dd 0x1BADB002                       ; nombre magic pour identifier l'en-tête
     dd 0x00                             ; flags non utilisés, donc 0
@@ -19,5 +19,10 @@ start:
 
 
 section .bss                            ; "Block Started by Symbol" section
+bss_start:
 resb    8192                            ; allocation de mémoire non initialisé 8kbit pour le stack
+bss_end:
 stack_space:                            ; adresse de l'espace stack utilisé plus haut
+
+global bss_start
+global bss_end

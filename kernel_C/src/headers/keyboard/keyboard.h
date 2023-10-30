@@ -1,7 +1,5 @@
 #pragma once
-#include "constants.h"
-#include "keyboard_scancodes.h"
-
+#include "keyboard/keyboard_scancodes.h"
 
 // récuperer les scancodes du clavier
 unsigned char get_scancode()
