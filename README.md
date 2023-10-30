@@ -57,4 +57,5 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - https://www.youtube.com/watch?v=MwPjvJ9ulSc&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
 - Créer un simple kernel en C et asm
     - https://github.com/chipsetx/Simple-Kernel-in-C-and-Assembly
-
+- Fonctionnement du controlleur PS/2 sur x86
+    - https://wiki.osdev.org/%228042%22_PS/2_Controller

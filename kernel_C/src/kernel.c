@@ -1,7 +1,8 @@
-#include "headers/constants.h"
-#include "headers/kernel_display.h"
-#include "headers/pong_game.h"
-#include "headers/keyboard_scancodes.h"
+#include "constants.h"
+#include "kernel_display.h"
+#include "pong_game.h"
+#include "keyboard/keyboard.h"
+#include "misc/number_helper.h"
 
 void k_clear_screen();
 unsigned k_printf(char * text);
@@ -20,39 +21,38 @@ void panic()
     
 }
 
-char get_hex_nibble(unsigned char digit)
-{
 
-    if (digit < 10)
+char convert_nb_to_ascii(unsigned number, char* string, unsigned number_char)
+{
+    unsigned nb_tmp = number;
+
+    char ascii_reverse[number_char];
+    unsigned rev_counter = 0;
+
+    while (nb_tmp != 0)
     {
-        return '0' + digit;
+        char last_digit = nb_tmp % 10;
+        nb_tmp /= 10;
+
+        ascii_reverse[rev_counter++] = last_digit + '0';
     }
-    else
+
+    unsigned counter = 0;
+    while (rev_counter != 0)
     {
-        return 'A' + digit;
+        string[counter++] = ascii_reverse[rev_counter--];
     }
-            
+
+    
 }
 
-unsigned char get_scancode()
+unsigned get_timestamp()
 {
-    volatile unsigned char *keybd_register = (unsigned char*) KEYBOARD_MEM_ADDR;
-    return *keybd_register;
-}
+    unsigned a_register;
+    // =a = registre A
+    asm volatile("RDTSC" : "=a"(a_register));
 
-void get_keyboard_keys()
-{
-    unsigned char scancode = get_scancode();
-
-    char* hex = "  ";
-
-    hex[0] = get_hex_nibble((scancode >> 4) & 0x0f);    
-    hex[1] = get_hex_nibble((scancode) & 0x0f);
-    hex[2] = '\0';
-
-    k_printf(hex);
-
-    // TODO comprendre comment intereter ce 
+    return (a_register);
 }
 
 
@@ -68,8 +68,16 @@ void k_main()
         // program
 
         //k_printf("Let's play !");
+        
+        char* ascii_test = "0000"; // TODO : Créer une function malloc et free
 
-        get_keyboard_keys();
+        convert_nb_to_ascii(112, ascii_test, 3);
+        k_printf(ascii_test);
+
+        //char* key = get_keyboard_keys();
+        //k_printf(key);
+        
+
         //drawplayer1(25/2);
         //drawplayer2(25/2);
 
