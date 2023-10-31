@@ -44,11 +44,3 @@ unsigned get_bits_length(unsigned object)
     return counter;
 
 }
-
-void print_hex(int number)
-{
-    unsigned nb_tmp = (unsigned) number;
-
-    unsigned length = get_bits_length(number);
-
-}

@@ -1,32 +1,53 @@
 #pragma once
-// string must be same lenght !
-char* k_strcpy(char* in, char* out)
+
+unsigned strlen(char * str);
+
+
+/// string must be same lenght !
+bool k_strcpy(char* in, char* out)
 {
+    if (strlen(in) != strlen(out))
+    {
+        return false;
+    }
+
     unsigned counter = 0;
 
-    while (in[counter] != '\0')
+    while (strlen(in) + 1 != counter)
     {
         out[counter++] = in[counter];
     }
-    
+    out[counter] = '\0';
+
+    return true;
 }
 
 unsigned strlen(char * str)
 {
-    return sizeof(str) / sizeof(char);
+    return sizeof(str) / sizeof(char) + 1;
 }
 
-void reverse_string(char* number)
+bool reverse_string(char* str)
 {
     unsigned counter = 0;
-    unsigned strlen = sizeof(number) / sizeof(char) - 1;
-    char* strclone = "000";
+    unsigned len = strlen(str) + 1;
+ 
+    char* strclone = malloc(sizeof(char) * (len));
 
-    k_strcpy(number, strclone);
-
-    while (number[counter] != '\0')
+    if (strclone == NULL)
     {
-        number[counter++] = strclone[strlen - 1 - counter];
+        k_free(strclone);
+        return true;
     }
-    
+
+    k_strcpy(str, strclone);
+
+    while (len != counter)
+    {
+        str[counter++] = strclone[len - 1 - counter];
+    }
+    str[counter] = '\0';
+
+    k_free(strclone);
+    return false;
 }
