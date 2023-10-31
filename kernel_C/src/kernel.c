@@ -1,9 +1,12 @@
+#include <stdlib.h>
+#include <stdbool.h>
+
 #include "constants.h"
+#include "misc/types.h"
+#include "misc/memory_alloc.h"
 #include "kernel_display.h"
-#include "pong_game.h"
 #include "keyboard/keyboard.h"
 #include "misc/number_helper.h"
-#include "misc/memory_alloc.h"
 #include "misc/converter.h"
 #include "misc/string.h"
 
@@ -21,56 +24,59 @@ void panic()
 
 
 
-unsigned get_timestamp()
+uint32 get_timestamp(bool part)
 {
-    unsigned a_register;
-    // =a = registre A
-    asm volatile("RDTSC" : "=a"(a_register));
+    uint32 low, high;
+    // =a = registre A; =b = registre B
+    asm volatile("RDTSC" : "=a"(low), "=b"(high));
 
-    return (a_register);
+    if (!part)
+    {
+        return low;
+    }
+    else
+    {
+        return high;
+    }
+    
 }
 
 
 void k_main()
 {
 
+    char* str_l = malloc(sizeof(char) * 11);
+
+    if (str_l == NULL)
+    {
+        k_printf("ERROR str");
+    }
     // refresh
     k_clear_screen();
 
-    // program
+    unsigned counter = 0;
 
-    char* test = (char*) malloc(sizeof(char) * 5);
-    
-    if (test == NULL)
-    {
-        k_printf("ERROR");
-    }
-
-    fillwith(test, (test + (sizeof(char) * 4)), '#');
-
-    char ok = sizeof(test) / sizeof(char);
-    char* str = malloc(sizeof(char) * 10);
-
-    if (str == NULL)
-    {
-        k_printf("ERROR");
-    }
-
-    convert_nb_to_ascii((unsigned int) 1234, str);
-
-    k_printf(str);
-
-
-    //print_hex(143);
-    free(str);
-    free(test);
-
-    while (1)
+    while (true)
     {  
-    
-    }
-        
+        uint32 t0 = get_timestamp(false);
 
-   return;
+
+
+
+        char *key = get_keyboard_keys();
+
+        if (key == "Q")
+        {
+            k_free(str_l);
+            return;
+        }
+
+        uint32 t1 = get_timestamp(false);
+
+        convert_nb_to_ascii(counter++, str_l);
+        k_printf(str_l);
+
+    }
+
     
 }

@@ -1,23 +1,16 @@
 #pragma once
-#include "misc/string.h"
 
-void convert_nb_to_ascii(unsigned number, char* string)
+void convert_nb_to_ascii(uint32 number, char* string)
 {
-    unsigned nb_tmp = number;
+    uint32 nb_tmp = number;
 
     unsigned rev_counter = 0;
-    unsigned length_digits = 0;
 
     // on compte le nombre de digits
-    while (nb_tmp != 0)
-    {
-        nb_tmp /= 10;
-        length_digits++;
-    }
+    unsigned length_digits = get_digits_length(nb_tmp);
     
-    char* reverse_array = (char *) malloc(sizeof(char) * (length_digits + 1));
+    char* reverse_array = (char*) malloc(sizeof(char) * (length_digits + 1));
     nb_tmp = number;
-
 
     // on converti
     string[length_digits] = '\0'; // on prend soin de mettre la fin de string
@@ -30,5 +23,6 @@ void convert_nb_to_ascii(unsigned number, char* string)
         string[--length_digits] = last_digit + '0';
     }
 
-    free(reverse_array);
+
+    k_free(reverse_array);
 }

@@ -17,14 +17,16 @@ unsigned char get_scancode()
 char* get_keyboard_keys()
 {
     unsigned char scancode = get_scancode();
+    unsigned i = 0;
 
-    for (unsigned i = 0; KEYMAP_KEYBOARD.ascii[i] != ""; i++)
+    while (KEYMAP_KEYBOARD.ascii[i++] != "")
     {
         if (scancode == KEYMAP_KEYBOARD.numbers[i])
         {
             return KEYMAP_KEYBOARD.ascii[i];
         }
         
-    }
+    }    
+
 
 }

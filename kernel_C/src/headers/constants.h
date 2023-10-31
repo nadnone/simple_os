@@ -1,9 +1,5 @@
 #pragma once
 
-#define NULL 0
-#define TRUE 1
-#define FALSE 0
-
 #define GREEN_TXT 0x2
 #define BLUE_TXT 0x1
 #define WHITE_TXT 0xf

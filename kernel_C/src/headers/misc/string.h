@@ -11,6 +11,11 @@ char* k_strcpy(char* in, char* out)
     
 }
 
+unsigned strlen(char * str)
+{
+    return sizeof(str) / sizeof(char);
+}
+
 void reverse_string(char* number)
 {
     unsigned counter = 0;

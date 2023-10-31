@@ -1,7 +1,5 @@
 #pragma once
 
-#define MAX_MALLOC 30
-
 extern char bss_start;
 extern char bss_end;
 
@@ -42,7 +40,9 @@ unsigned count_freespace(const char * start_addr)
         checker = *(start_addr + counter++);
 
         if ((start_addr + counter) == &bss_end)
-        return counter;
+        {
+            return counter;
+        }
     }
 
     return counter;
@@ -69,7 +69,7 @@ void *malloc(unsigned size_in_byte)
     
 }
 
-void free(char* ptr)
+void k_free(char* ptr)
 {
     unsigned free_space = count_freespace(ptr);
     fillwithzero(ptr, (ptr + free_space));
