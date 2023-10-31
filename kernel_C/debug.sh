@@ -1,8 +1,7 @@
 # compilation
 nasm -f elf32 src_asm/kernel.asm -o bin/kernel_asm.o &&
-gcc -m32 -c -Iinclude/std/ \
+gcc -m32 -c -nostdlib \
     -I./src/headers/ \
-    -std=gnu11 \
     src/kernel.c -o bin/kernel.o && 
 
 # Linking

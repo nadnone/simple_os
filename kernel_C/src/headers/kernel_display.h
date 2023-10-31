@@ -69,3 +69,40 @@ unsigned k_printf(char* text)
     
 }
 
+void print_hex(int number)
+{
+    unsigned nb_tmp = (unsigned) number;
+
+    unsigned length = get_digits_length(number) + 1;
+
+    char * hex_str = malloc(sizeof(char) * length);
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        const char hex = (char)(nb_tmp & 0x0f);
+        nb_tmp /= 16;
+
+        if (hex < 10)
+        {
+            hex_str[i] = hex + '0';
+        }
+        else
+        {
+            hex_str[i] = hex + 'a' - 10;
+        }
+    }
+
+    hex_str[length - 2] = 'x';
+    hex_str[length - 1] = '0';
+    hex_str[length] = '\0';
+
+    reverse_string(hex_str);
+    
+    k_printf(hex_str);
+
+
+
+    k_free(hex_str);
+    
+}
+
