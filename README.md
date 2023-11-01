@@ -27,6 +27,11 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - [x] Créer un malloc() et un free() basique
     - [x] Fonction timestamp() et sleep()
     - [ ] Augmenter la résolution avec VESA ou un autre mode VGA
+    - [ ] Créer un gestionnaire de mémoire vive
+    - [ ] Récuperer le RTC
+    - [ ] Faire un ordonanceur
+    - [ ] ... 
+    - [ ] Faire un Shell
     - [ ] ...
     - [ ] transformer le kernel en un truc cool, comme un jeu simple
 

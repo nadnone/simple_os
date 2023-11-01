@@ -1,7 +1,7 @@
 #pragma once
 
-extern char bss_start;
-extern char bss_end;
+extern char heap_start;
+extern char heap_end;
 
 typedef struct node_malloc {
     char size;
@@ -48,7 +48,7 @@ unsigned count_freespace(const char * start_addr)
     {
         checker = *(start_addr + counter++);
 
-        if ((start_addr + counter) == &bss_end)
+        if ((start_addr + counter) == &heap_end)
         {
             return counter;
         }
@@ -63,9 +63,9 @@ unsigned count_freespace(const char * start_addr)
 void *k_malloc(unsigned size_in_byte)
 {
 
-    for (char* i = &bss_start; i <= &bss_end; i++)
+    for (char* i = &heap_start; i <= &heap_end; i++)
     {
-        char* current_addr = (bss_start + i);
+        char* current_addr = (heap_start + i);
         unsigned free_space = count_freespace(current_addr);
 
         // si emplacement trouvé

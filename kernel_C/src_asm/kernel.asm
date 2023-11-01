@@ -20,9 +20,12 @@ start:
 
 section .bss                            ; "Block Started by Symbol" section
 bss_start:                              ; adresse de départ de bss
-resb    1024*16                         ; allocation de mémoire non initialisé 16kbit pour le stack
+resb    1024*8                          ; allocation de mémoire non initialisé 8kbit pour les variables statiques
 bss_end:                                ; adresse de fin de bss
+heap_start:
+resb    1024*8                          ; on initialize de la mémoire pour le heap à zéro (pour mon malloc temporaire)
+heap_end:
 stack_space:                            ; adresse de l'espace stack utilisé plus haut
 
-global bss_start
-global bss_end
+global heap_start
+global heap_end
