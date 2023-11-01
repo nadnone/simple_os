@@ -1,6 +1,10 @@
 #pragma once
 
-unsigned put_pixel(unsigned px, unsigned py)
+/// @brief (commande un peux inutile), ajoute un x à une position (x,y)
+/// @param px 
+/// @param py 
+/// @return 
+void put_pixel(unsigned px, unsigned py)
 {
     char* vga_buffer = (char *) VGA_MEM_ADDR;
 
@@ -11,6 +15,7 @@ unsigned put_pixel(unsigned px, unsigned py)
 
 }
 
+/// @brief nettoye l'écran
 void k_clear_screen()
 {
     char* vga_buffer = (char *) VGA_MEM_ADDR;

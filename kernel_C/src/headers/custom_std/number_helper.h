@@ -17,6 +17,10 @@ char get_hex_nibble(unsigned char digit)
             
 }
 
+/// @brief multiplication par exposant 
+/// @param value 
+/// @param power 
+/// @return le produit
 uint32_t k_pow(unsigned value, unsigned power)
 {
     uint32_t rslt = 1;
@@ -29,6 +33,10 @@ uint32_t k_pow(unsigned value, unsigned power)
     return rslt;
 }
 
+
+/// @brief inverse l'ordre des bits
+/// @param bits 
+/// @return l'inverse de ce qui a été donné
 uint32_t reverse_bits(uint32_t bits)
 {
     uint32_t rev_bits = 0;
@@ -43,6 +51,10 @@ uint32_t reverse_bits(uint32_t bits)
 
     return rev_bits;
 }
+
+/// @brief donne le nombre de digit d'un nombre
+/// @param object 
+/// @return nombre de digits
 unsigned get_digits_length(uint32_t object)
 {
     unsigned counter = 0;
@@ -58,6 +70,9 @@ unsigned get_digits_length(uint32_t object)
     
 }
 
+/// @brief compte le nombre de bit utilisé dans l'argument
+/// @param object 
+/// @return nombre de bits utilisés
 unsigned get_bits_length(unsigned object)
 {
     unsigned bits = object;

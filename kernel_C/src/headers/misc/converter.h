@@ -1,5 +1,8 @@
 #pragma once
 
+/// @brief converti un nombre en ASCII, utile pour l'affichage à l'écran
+/// @param number 
+/// @param string ce string sera modifié
 void convert_nb_to_ascii(uint32_t number, char* string)
 {
     uint32_t nb_tmp = number;

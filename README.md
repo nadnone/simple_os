@@ -1,6 +1,6 @@
 # Simple OS
 
-### Projet de création d'un programme assembleur x86_64 capable de se lancer au démarrage de l'ordinateur
+### Projet de création d'un programme assembleur x86 capable de se lancer au démarrage de l'ordinateur
 
 ---------------
 
@@ -25,11 +25,12 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - [x] Charger et executer le kernel
     - [x] Récupérer les entrées clavier
     - [x] Créer un malloc() et un free() basique
-    - [x] function timestamp() et sleep()
+    - [x] Fonction timestamp() et sleep()
+    - [ ] Augmenter la résolution avec VESA ou un autre mode VGA
     - [ ] ...
     - [ ] transformer le kernel en un truc cool, comme un jeu simple
 
-- [ ] Charger le kernel avec un bootloader (on croise les doigts)
+- [ ] Charger le kernel avec un bootloader fait maison (on croise les doigts)
 
 
 

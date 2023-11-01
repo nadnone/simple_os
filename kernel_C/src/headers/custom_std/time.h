@@ -21,7 +21,7 @@ void sleep(uint32_t ms)
 {
     uint32_t t0 = GLOBAL_TIMESTAMP_MS;
 
-    while ((GLOBAL_TIMESTAMP_MS - t0) <= ms * 1000)
+    while ((GLOBAL_TIMESTAMP_MS - t0) <= ms * 1000) // * 1000 à cause de l'estimation
     {
         increament_global_timestamp();
     }
@@ -35,7 +35,7 @@ void increament_global_timestamp()
 
     uint32_t sec = reverse_bits(ticks) & 0xff; // éstimation pour CPU i386
 
-    if (sec >= 100)
+    if (sec >= 100) // on incrémente à partir de 100 sur les 0xff premier bits
     {
         GLOBAL_TIMESTAMP_MS++;
     }

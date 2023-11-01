@@ -1,7 +1,8 @@
 #pragma once
-#include "keyboard/keyboard_scancodes.h"
+#include "keyboard/keyboard_scancodes_QWERTZ.h"
 
-// récuperer les scancodes du clavier
+/// @brief récuperer les scancodes du clavier
+/// @return le scancode
 unsigned char get_scancode()
 {
     unsigned char ret; // retour de la commande assembleur
@@ -13,7 +14,8 @@ unsigned char get_scancode()
 
 }
 
-// pour récuperer les touches du clavier en format ASCII
+/// @brief pour récuperer les touches du clavier en format ASCII
+/// @return string ASCII du caractère
 char* get_keyboard_keys()
 {
     unsigned char scancode = get_scancode();

@@ -3,7 +3,10 @@
 unsigned strlen(char * str);
 
 
-/// string must be same lenght !
+/// @brief copy un string dans un autre de même taille
+/// @param in 
+/// @param out 
+/// @return false si les string n'ont pas la même longueur, true si succès
 bool k_strcpy(char* in, char* out)
 {
     if (strlen(in) != strlen(out))
@@ -22,11 +25,17 @@ bool k_strcpy(char* in, char* out)
     return true;
 }
 
+/// @brief compte le nombre de char dans un string
+/// @param str 
+/// @return nombre de char + le caractère de fin
 unsigned strlen(char * str)
 {
     return sizeof(str) / sizeof(char) + 1;
 }
 
+/// @brief inverse l'ordre des char dans un string
+/// @param str 
+/// @return string inversé
 bool reverse_string(char* str)
 {
     unsigned counter = 0;

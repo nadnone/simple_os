@@ -1,5 +1,7 @@
 # compilation
 nasm -f elf32 src_asm/kernel.asm -o bin/kernel_asm.o &&
+
+# option -c pour ne pas linker, je le fais en deuxième temps
 gcc -m32 -c -nostdlib \
     -I./src/headers/ \
     src/kernel.c -o bin/kernel.o &&
