@@ -1,14 +1,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #include "constants.h"
-#include "misc/types.h"
-#include "misc/memory_alloc.h"
-#include "misc/number_helper.h"
+#include "custom_std/memory_alloc.h"
+#include "custom_std/number_helper.h"
 #include "misc/converter.h"
-#include "misc/string.h"
+#include "custom_std/string.h"
 #include "kernel_display.h"
 #include "keyboard/keyboard.h"
+#include "custom_std/time.h"
 
 void panic()
 {
@@ -23,17 +24,33 @@ void panic()
 }
 
 
+
+
 void k_main()
 {
-
     // refresh
     k_clear_screen();
-    k_printf("Fonctionne mais ne fait rien..");
 
     while (true)
-    {  
+    {
+        increament_global_timestamp();
+        
+        k_printf("test");
+
+        sleep(5000);
+
+        k_printf("test ok");
+
+        sleep(5000);
+        
+        k_clear_screen();
+
 
     }
-
     
+    
+
+
+
 }
+

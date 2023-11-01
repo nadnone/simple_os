@@ -48,7 +48,7 @@ unsigned count_freespace(const char * start_addr)
     return counter;
 }
 
-void *malloc(unsigned size_in_byte)
+void *k_malloc(unsigned size_in_byte)
 {
 
     for (char* i = &bss_start; i <= &bss_end; i++)

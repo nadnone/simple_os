@@ -32,7 +32,9 @@ void k_printchar(char letter, unsigned position)
     vga_buffer[position + 2] = '\0'; 
 }
 
-
+/// @brief un équivalent printf rudimentaire
+/// @param text 
+/// @return 1 = success, nothing = error
 unsigned k_printf(char* text)
 {
     char* vga_buffer = (char *) VGA_MEM_ADDR;
@@ -69,13 +71,15 @@ unsigned k_printf(char* text)
     
 }
 
+/// @brief print number in hex
+/// @param number 
 void print_hex(int number)
 {
     unsigned nb_tmp = (unsigned) number;
 
     unsigned length = get_digits_length(number) + 1;
 
-    char * hex_str = malloc(sizeof(char) * length);
+    char * hex_str = k_malloc(sizeof(char) * length);
 
     for (unsigned i = 0; i < length; i++)
     {

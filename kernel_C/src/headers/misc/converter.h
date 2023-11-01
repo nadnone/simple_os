@@ -1,15 +1,15 @@
 #pragma once
 
-void convert_nb_to_ascii(uint32 number, char* string)
+void convert_nb_to_ascii(uint32_t number, char* string)
 {
-    uint32 nb_tmp = number;
+    uint32_t nb_tmp = number;
 
     unsigned rev_counter = 0;
 
     // on compte le nombre de digits
     unsigned length_digits = get_digits_length(nb_tmp);
     
-    char* reverse_array = (char*) malloc(sizeof(char) * (length_digits + 1));
+    char* reverse_array = (char*) k_malloc(sizeof(char) * (length_digits + 1));
     nb_tmp = number;
 
     // on converti
