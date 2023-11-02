@@ -13,6 +13,9 @@ unsigned char port_byte_read(uint16_t port)
     return rslt;
 }
 
+
+
+
 /// @brief écrit à une adresse mémoire
 /// @param port addresse pour le registre DX
 /// @param data valeur pour le registre AL qui sera envoyé à DX

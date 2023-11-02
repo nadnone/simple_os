@@ -2,20 +2,8 @@
 
 unsigned get_bits_length(unsigned object);
 
-// conversion en hexadécimales
-char get_hex_nibble(unsigned char digit)
-{
 
-    if (digit < 10)
-    {
-        return '0' + digit;
-    }
-    else
-    {
-        return 'A' + digit;
-    }
-            
-}
+
 
 /// @brief multiplication par exposant 
 /// @param value 

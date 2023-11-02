@@ -3,6 +3,7 @@
 unsigned strlen(char * str);
 
 
+
 /// @brief copy un string dans un autre de même taille
 /// @param in 
 /// @param out 
@@ -25,13 +26,19 @@ bool k_strcpy(char* in, char* out)
     return true;
 }
 
+
+
+
 /// @brief compte le nombre de char dans un string
 /// @param str 
-/// @return nombre de char + le caractère de fin
+/// @return nombre de char + la fin de string
 unsigned strlen(char * str)
 {
     return sizeof(str) / sizeof(char) + 1;
 }
+
+
+
 
 /// @brief inverse l'ordre des char dans un string
 /// @param str 

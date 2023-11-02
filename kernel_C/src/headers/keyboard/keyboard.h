@@ -12,8 +12,7 @@ unsigned char get_scancode()
 {
     unsigned char ret; // retour de la commande assembleur
 
-    // lecture "in" à l'adresse du clavier des scancodes
-    //asm volatile("in %%dx, %%al" : "=a"(ret) : "d"(KEYBOARD_MEM_ADDR) : "memory"); 
+    // lecture l'adresse du clavier des scancodes
     ret = port_byte_read(KEYBOARD_MEM_ADDR);
 
     return ret;

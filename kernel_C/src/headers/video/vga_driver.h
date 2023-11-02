@@ -39,11 +39,11 @@ void set_cursor(int x, int y)
 {
     uint16_t offset = x + y * VGA_WIDTH;
     
-    port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_LOW); // on prépare pour écrire sur le high byte
-    port_byte_write(VGA_CTRL_REGISTER, (uint8_t) (offset & 0xff)); // on shift à gauche pour prendre la partie haute et l'écrire dans le high byte 
+    port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_LOW); // on prépare pour écrire sur le low byte
+    port_byte_write(VGA_CTRL_REGISTER, (uint8_t) (offset & 0xff)); // on écrit le low
 
-    port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_HIGH); // on prépare pour set le low byte
-    port_byte_write(VGA_DATA_REGISTER, (uint8_t) ((offset >> 8) & 0xff)); // on écrit le low byte
+    port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_HIGH); // on prépare pour set le high byte
+    port_byte_write(VGA_DATA_REGISTER, (uint8_t) ((offset >> 8) & 0xff)); // on écrit le high
 
 }
 
@@ -59,7 +59,7 @@ int get_cursor()
     port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_LOW); // on prépare pour lire le low byte
     index_vga |= port_byte_read(VGA_DATA_REGISTER); // on lit la partie basse (low) et on l'ajoute à la position
 
-    return index_vga; // position 1D (on double pour adapter au vga buffer)
+    return index_vga; // position 1D
 }
 
 

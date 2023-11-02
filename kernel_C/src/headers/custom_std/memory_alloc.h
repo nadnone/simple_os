@@ -11,6 +11,10 @@ typedef struct node_malloc {
     struct node_malloc * next;
 } node_malloc;
 
+
+
+
+
 /// @brief remplis une plage d'adresse avec des zéros
 /// @param start_addr 
 /// @param end_addr 
@@ -22,6 +26,9 @@ void fillwithzero(char *start_addr, char *end_addr)
     }
     
 }
+
+
+
 
 /// @brief remplis une plage d'adresse avec le char défini
 /// @param start_addr 
@@ -36,6 +43,9 @@ void fillwith(char *start_addr, char *end_addr, char fillchar)
     }
     
 }
+
+
+
 
 /// @brief compte le nombre de blocks disponibles entre l'adresse définie jusqu'à la fin du .bss
 /// @param start_addr 
@@ -57,6 +67,9 @@ unsigned count_freespace(const char * start_addr)
 
     return counter;
 }
+
+
+
 
 /// @brief alloue de la mémoire dynamique
 /// @param size_in_byte 
@@ -81,6 +94,9 @@ void *k_malloc(unsigned size_in_byte)
     return NULL;
     
 }
+
+
+
 
 /// @brief à utiliser après chaque utilisation de malloc() pour vider la mémoire utilisé afin qu'elle puisse être réutilisée
 /// @param ptr 
