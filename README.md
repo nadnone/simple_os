@@ -68,3 +68,11 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - https://github.com/chipsetx/Simple-Kernel-in-C-and-Assembly
 - Fonctionnement du controlleur PS/2 sur x86
     - https://wiki.osdev.org/%228042%22_PS/2_Controller
+- Distinction Stack Heap et Block Started By Symbol
+    - https://www.javatpoint.com/memory-layout-in-c
+- QEMU documentation
+    - https://wiki.gentoo.org/wiki/QEMU/Options#RAM
+- Ecriture d'un driver VGA simple
+    - https://dev.to/frosnerd/writing-my-own-vga-driver-22nn
+    - https://wiki.osdev.org/Text_Mode_Cursor#Enabling_the_Cursor
+    - https://www.reddit.com/r/osdev/comments/dqtzdf/how_to_move_vga_text_mode_cursor/

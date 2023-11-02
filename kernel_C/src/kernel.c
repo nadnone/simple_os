@@ -2,15 +2,14 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "constants.h"
 #include "custom_std/memory_alloc.h"
 #include "custom_std/number_helper.h"
 #include "misc/converter.h"
 #include "custom_std/string.h"
-#include "kernel_display.h"
 #include "keyboard/keyboard.h"
 #include "custom_std/time.h"
 
+#include "video/vga_driver.h"
 
 
 void panic()
@@ -27,25 +26,21 @@ void panic()
 
 
 
+
 void k_main()
 {
     // refresh
     k_clear_screen();
 
+
+    k_printf("TEST");
+    
+    /// TODO: debugger le positionnement du curseur
+    set_cursor(0,0);
+
     while (true)
-    {
+    { 
         increament_global_timestamp();
-        
-        k_printf("test");
-
-        sleep(5000);
-
-        k_printf("test ok");
-
-        sleep(5000);
-        
-        k_clear_screen();
-
 
     }
     

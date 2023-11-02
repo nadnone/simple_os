@@ -1,5 +1,10 @@
 #pragma once
 #include "keyboard/keyboard_scancodes_QWERTZ.h"
+#include "custom_std/io_manager.h"
+
+/// Adresse pour lire les scancodes 
+#define KEYBOARD_MEM_ADDR 0x60 
+
 
 /// @brief récuperer les scancodes du clavier
 /// @return le scancode
@@ -8,7 +13,8 @@ unsigned char get_scancode()
     unsigned char ret; // retour de la commande assembleur
 
     // lecture "in" à l'adresse du clavier des scancodes
-    asm volatile("in %%dx, %%al" : "=a"(ret) : "d"(KEYBOARD_MEM_ADDR) : "memory"); 
+    //asm volatile("in %%dx, %%al" : "=a"(ret) : "d"(KEYBOARD_MEM_ADDR) : "memory"); 
+    ret = port_byte_read(KEYBOARD_MEM_ADDR);
 
     return ret;
 
