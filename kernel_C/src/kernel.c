@@ -33,14 +33,13 @@ void k_main()
     k_clear_screen();
 
 
-    k_printf("TEST");
+    k_printf("Fonctionne mais ne fait rien");
     
-    /// TODO: debugger le positionnement du curseur
-    set_cursor(0,0);
 
     while (true)
     { 
         increament_global_timestamp();
+
 
     }
     

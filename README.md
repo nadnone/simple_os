@@ -26,6 +26,7 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - [x] Récupérer les entrées clavier
     - [x] Créer un malloc() et un free() basique
     - [x] Fonction timestamp() et sleep()
+    - [ ] Création d'un petit driver VGA
     - [ ] Augmenter la résolution avec VESA ou un autre mode VGA
     - [ ] Créer un gestionnaire de mémoire vive
     - [ ] Récuperer le RTC

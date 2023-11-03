@@ -32,18 +32,18 @@ char VGA_HEIGHT = DISPLAY_HEIGHT;
 
 
 
-/// @brief défini la position du curseur (TODO: A REVOIR)
+/// @brief défini la position du curseur
 /// @param x 
 /// @param y 
 void set_cursor(int x, int y)
 {
-    uint16_t offset = x + y * VGA_WIDTH;
+    uint16_t offset = x / 2 + y * VGA_WIDTH / 2; // divisé par deux car le VGA à deux bytes par cell
     
     port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_LOW); // on prépare pour écrire sur le low byte
-    port_byte_write(VGA_CTRL_REGISTER, (uint8_t) (offset & 0xff)); // on écrit le low
+    port_byte_write(VGA_DATA_REGISTER, offset & 0xff); // on écrit le low
 
     port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_HIGH); // on prépare pour set le high byte
-    port_byte_write(VGA_DATA_REGISTER, (uint8_t) ((offset >> 8) & 0xff)); // on écrit le high
+    port_byte_write(VGA_DATA_REGISTER, (offset >> 8) & 0xff); // on écrit le high
 
 }
 
@@ -59,7 +59,7 @@ int get_cursor()
     port_byte_write(VGA_CTRL_REGISTER, VGA_OFFSET_LOW); // on prépare pour lire le low byte
     index_vga |= port_byte_read(VGA_DATA_REGISTER); // on lit la partie basse (low) et on l'ajoute à la position
 
-    return index_vga; // position 1D
+    return index_vga * 2; // position 1D (x2 car le VGA à deux bytes par cell)
 }
 
 

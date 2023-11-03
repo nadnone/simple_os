@@ -19,7 +19,7 @@ unsigned char port_byte_read(uint16_t port)
 /// @brief écrit à une adresse mémoire
 /// @param port addresse pour le registre DX
 /// @param data valeur pour le registre AL qui sera envoyé à DX
-void port_byte_write(uint16_t port, unsigned char data)
+void port_byte_write(uint16_t port, uint16_t data)
 {
     asm volatile("out %%al, %%dx" // out car on écrit donc sa sort
         : // on lis rien
