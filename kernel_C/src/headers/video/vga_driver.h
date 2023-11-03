@@ -110,8 +110,8 @@ unsigned k_printf(char* text)
 
             while (vga_index < line * VGA_WIDTH)
             {   
-                vga_buffer[vga_index++ + 0] = '\0';
-                vga_buffer[vga_index++ + 1] = '\0';
+                vga_buffer[vga_index++ + 0] = 0;
+                vga_buffer[vga_index++ + 1] = 0;
             }
             txt_index++;
         }
@@ -158,12 +158,6 @@ void print_hex(int number)
         }
     }
 
-    hex_str[length - 2] = 'x';
-    hex_str[length - 1] = '0';
-    hex_str[length] = '\0';
-
-    reverse_string(hex_str);
-    
     k_printf(hex_str);
 
     k_free(hex_str);

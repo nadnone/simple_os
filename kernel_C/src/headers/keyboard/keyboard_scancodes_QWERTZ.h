@@ -1,7 +1,7 @@
 struct KEYMAP_KEYBOARD
 {
-    unsigned char numbers[36];
-    char* ascii[37];
+    unsigned char numbers[45];
+    char* ascii[46];
 
 } KEYMAP_KEYBOARD = {
     {
@@ -28,6 +28,17 @@ struct KEYMAP_KEYBOARD
         0x30, 0x31, // B, N
         0x32, // M
 
+        0x33, // , (virgule)
+        0x34, // . (point)
+        0x35, // - (tiret)
+
+        0x39, // Space
+        0x1D, // CTRL Left
+        0x2A, // left shift
+        0x36, // right shift
+
+        0x1c, // Enter
+
     },
     {
         "0", "1",
@@ -51,6 +62,36 @@ struct KEYMAP_KEYBOARD
         "Y", "X",
         "C", "V",
         "B", "N",
-        "M", ""
+        "M", 
+
+        ",", ".",
+        "-",
+
+        "SPACE", 
+        "L-CTRL",
+        "L-SHIFT",
+        "R-SHIFT",
+
+        "ENTER",
+
+        "" // fin du tableau
     }
+};
+
+struct KEYMAP_E0 {
+
+    unsigned char numbers[2];
+    char* ascii[3];
+
+} KEYMAP_E0 = {
+    {
+        0x1d,
+        0x35,
+    },
+    {
+        "R_CTRL",
+        "DIVIDE",
+        "" // fin du tableau
+    }
+    /// TODO: continuer d'ajouter les scancodes
 };

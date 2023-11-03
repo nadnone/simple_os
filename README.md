@@ -23,11 +23,13 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
 
 - [ ] Charger un kernel fait en C
     - [x] Charger et executer le kernel
-    - [x] Récupérer les entrées clavier
+    - [x] Récupérer les entrées clavier (driver clavier)
+        - [x] Récuprer les touches principales
+        - [ ] ...
     - [x] Créer un malloc() et un free() basique
     - [x] Fonction timestamp() et sleep()
-    - [ ] Création d'un petit driver VGA
-    - [ ] Augmenter la résolution avec VESA ou un autre mode VGA
+    - [x] Création d'un petit driver VGA
+    - [ ] Tenter de changer le mode VGA en mode VESA
     - [ ] Créer un gestionnaire de mémoire vive
     - [ ] Récuperer le RTC
     - [ ] Faire un ordonanceur
@@ -69,6 +71,8 @@ Ce projet à pour but de m'initier et de commencer la programmation sans systèm
     - https://github.com/chipsetx/Simple-Kernel-in-C-and-Assembly
 - Fonctionnement du controlleur PS/2 sur x86
     - https://wiki.osdev.org/%228042%22_PS/2_Controller
+- Scancodes Touches Clavier QWERTZ 
+    - https://kbdlayout.info/kbdgr/scancodes
 - Distinction Stack Heap et Block Started By Symbol
     - https://www.javatpoint.com/memory-layout-in-c
 - QEMU documentation

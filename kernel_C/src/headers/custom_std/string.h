@@ -48,7 +48,7 @@ bool reverse_string(char* str)
     unsigned counter = 0;
     unsigned len = strlen(str) + 1;
  
-    char* strclone = k_malloc(sizeof(char) * (len));
+    char* strclone = k_malloc(sizeof(char) * len);
 
     if (strclone == NULL)
     {

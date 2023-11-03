@@ -6,8 +6,8 @@
 #include "custom_std/number_helper.h"
 #include "misc/converter.h"
 #include "custom_std/string.h"
-#include "keyboard/keyboard.h"
 #include "custom_std/time.h"
+#include "keyboard/keyboard_driver.h"
 
 #include "video/vga_driver.h"
 
@@ -29,18 +29,20 @@ void panic()
 
 void k_main()
 {
-    // refresh
-    k_clear_screen();
-
-
-    k_printf("Fonctionne mais ne fait rien");
-    
-
     while (true)
     { 
+        // impératif pour gérer le temps
         increament_global_timestamp();
+        
+        k_clear_screen();
 
 
+        char* scancode = get_keyboard_keys();
+        k_printf(scancode);
+
+
+        // pour voir les touches passer
+        sleep(60);
     }
     
     

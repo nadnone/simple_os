@@ -22,7 +22,7 @@ void fillwithzero(char *start_addr, char *end_addr)
 {
     for (char* i = start_addr; i <= end_addr; i++)
     {
-        *i = '\0';
+        *i = 0;
     }
     
 }
@@ -52,10 +52,10 @@ void fillwith(char *start_addr, char *end_addr, char fillchar)
 /// @return 
 unsigned count_freespace(const char * start_addr)
 {
-    char checker = '\0';
+    char checker = 0;
     unsigned counter = 0;
 
-    while (checker == '\0')
+    while (checker == 0)
     {
         checker = *(start_addr + counter++);
 
@@ -83,7 +83,7 @@ void *k_malloc(unsigned size_in_byte)
         unsigned free_space = count_freespace(current_addr);
 
         // si emplacement trouvé
-        if (*current_addr == '\0' && free_space >= size_in_byte)
+        if (*current_addr == 0 && free_space >= size_in_byte)
         {
             fillwith(current_addr, current_addr + size_in_byte - 1, ' ');
             return current_addr;

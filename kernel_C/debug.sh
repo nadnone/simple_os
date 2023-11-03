@@ -16,6 +16,7 @@ echo "LINKING" &&
 # dd if=/dev/zero of=disk.img iflag=fullblock bs=1M count=56 &&
 
 # on émule pour check avec des options de QEMU_x86_64
+echo "RUNING QEMU" &&
 qemu-system-x86_64 -kernel bin/kernel \
     -m 16M \
     -drive file=disk.img,index=0,media=disk,format=raw \
